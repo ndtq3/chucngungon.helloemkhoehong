@@ -1,0 +1,152 @@
+<!DOCTYPE html >
+< html  lang =" vi " >
+< đầu >
+< meta  charset =" UTF-8 " >
+<title> Bướm </title>​​​​
+<style>​​
+html , body {
+  lề : 0 ;
+  đệm : 0 ;
+  chiều rộng : 100 % ;
+  chiều cao : 100 % ;
+  nền : đen;
+  tràn : ẩn;
+  font-family : Segoe UI , sans-serif;
+}
+. bối cảnh {
+  vị trí : tương đối;
+  chiều rộng : 100 % ;
+  chiều cao : 100 % ;
+}
+. bươm bướm {
+  vị trí : tuyệt đối;
+  chiều rộng : 180px ;
+  Còn lại : 50 % ;
+  hàng đầu : 55 % ;
+  biến đổi : dịch chuyển ( -50 % , -50 % );
+  con trỏ : con trỏ chuột;
+  Hoạt ảnh : vỗ cánh 1,2 giây, chuyển động mượt mà vô hạn;
+  chuyển tiếp : tất cả 2 giây dễ dàng;
+}
+. bướm . bay {
+  trên cùng : -40 % ;
+  độ mờ : 0 ;
+}
+@keyframes flap{
+  0 % , 100% { transform : translate ( -50 % , -50 % ) scale ( 1 ); }
+  50 % { transform : translate ( -50 % , -50 % ) scale ( 1.08 );}
+}
+. chữ {
+  vị trí : tuyệt đối;
+  chiều rộng : 100 % ;
+  trên cùng : 45 % ;
+  căn chỉnh văn bản : ở giữa;
+  Màu sắc : trắng;
+  cỡ chữ : 36px ;
+  độ mờ : 0 ;
+  chuyển đổi : độ mờ 1,5 giây ;
+}
+vải bạt {
+  vị trí : cố định;
+  chèn : 0 ;
+  sự kiện con trỏ : không có;
+}
+</style>​​
+</head>​​
+
+<body>​​
+
+< canvas  id = " galaxy " > </canvas>​
+< canvas  id = " heart " > </canvas>​
+
+< div  class =" scene " >
+  < img  id =" butterfly " class =" butterfly ">
+  src =" data:image/webp;base64,
+UklGRk4AAABXRUJQVlA4IEIAAABQAgCdASoQABAAkA4JZQCdADo
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+" >
+
+  < div  class =" text " id =" t1 " > chạm để bướm bay </ div >
+  < div class =" text " id =" t2 " > Hoàng Phúc </ div  >
+  < div class =" text " id =" t3 " > giờ này chưa ngủ < / div  >
+  < div class =" text " id =" t4 " > miễn phí quá coi tới đây < / div  >
+  < div class =" text " id =" t5 " > chúc anh ngủ ngon </ div  >
+</ div >
+
+<script>​​
+const  texts = [ t1 , t2 , t3 , t4 , t5 ] ;
+đặt  i = 0 ;
+setTimeout ( ( ) => show ( 0 ) , 3000 ) ;
+hàm  hiển thị ( n ) {
+  văn bản.forEach ( t = > t.style.opacity = 0 ) ;​​​​
+  văn bản [ n ] . kiểu . độ mờ = 1 ;
+}
+
+bướm.onclick = ( ) = > {​
+  butterfly.classList.add ( " fly " ) ;​​
+  startGalaxy ( ) ;
+  đặt  d = 2000 ;
+  for ( let  i = 1 ; i < texts . length ; i ++ ) {
+    setTimeout ( ( ) => show ( i ) , d ) ;
+    d ± 2500 ;
+  }
+  setTimeout ( startHearts , d + 2000 ) ;
+};
+
+/* THIÊN HÀ */
+const  g = galaxy.getContext ( " 2d " ) ;
+galaxy.width = innerWidth ;​​
+chiều cao thiên hà = chiều cao bên trong ;
+let  stars = [ ] ;
+hàm  startGalaxy ( ) {
+  for ( let  i = 0 ; i < 200 ; i ++ ) {
+    sao . đẩy ( {
+      x : Math . random ( ) * galaxy . width ,
+      y : Math . random ( ) * galaxy . height ,
+      r : Math . random ( ) * 2 ,
+      v : Math . random ( ) * 0.7
+    } ) ;
+  }
+  ( hàm hoạt  ảnh ( ) {
+    g.clearRect ( 0 , 0 , galaxy.width , galaxy.height ) ;​​​​​​
+    sao.forEach ( s = > {​
+      g.beginPath ( ) ;​​
+      g . arc ( s . x , s . y , s . r , 0 , Math . PI * 2 ) ;
+      g.fillStyle = " white " ;
+      g.fill ( ) ;​​
+      s . y += s . v ;
+      nếu ( s . y > galaxy . height )  s . y = 0 ;
+    } ) ;
+    requestAnimationFrame ( anim ) ;
+  } ) ( ) ;
+}
+
+/* TRÁI TIM */
+const  h = heart.getContext ( " 2d " ) ;
+chiều rộng của tim = chiều rộng bên trong ;
+chiều cao tim = chiều cao bên trong ;
+let  hearts = [ ] ;
+hàm  startHearts ( ) {
+  setInterval ( ( ) => hearts . push ( { t : 0 , s : Math . random ( ) * 10 + 8 } ) , 150 ) ;
+  ( hàm hoạt  ảnh ( ) {
+    h.clearRect ( 0 , 0 , heart.width , heart.height ) ;​​​​​​
+    trái tim.forEach ( o = > {
+      o . t ± 0,05 ;
+      let  x = heart . width / 2 + ( 16 * Math . sin ( o . t ) ** 3 ) * o . s ;
+      let  y = heart . height / 2 - ( 13 * Math . cos ( o . t ) - 5 * Math . cos ( 2 * o . t ) ) * o . s ;
+      h.beginPath ( ) ;​​
+      h.arc ( x , y , 2 , 0 , Math.PI * 2 ) ;​​​​
+      h.fillStyle = " pink " ;
+      h.fill ( ) ;​​
+    } ) ;
+    requestAnimationFrame ( anim ) ;
+  } ) ( ) ;
+}
+</script>​​
+
+</body>​​
+</ html >
