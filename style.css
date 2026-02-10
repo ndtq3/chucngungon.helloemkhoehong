@@ -1,0 +1,79 @@
+*  {
+  lề : 0 ; 
+  đệm : 0 ; 
+  box-sizing :  border-box;
+}
+
+thân hình  {
+  nền :  đen;
+  tràn :  ẩn;
+  font-family : ' Segoe UI ' , sans-serif; 
+}
+
+/* Canvas */
+vải bạt {
+  vị trí : cố định;
+  chèn :  0 ;
+  sự kiện con trỏ : không có;
+}
+
+/* Bối cảnh */
+. bối cảnh {
+  vị trí : tương đối;
+  chiều rộng :  100 vw ;
+  chiều cao :  100 vh ;
+  z-index :  2 ;
+}
+
+/* Cửa */
+. cửa {
+  vị trí : tuyệt đối;
+  chèn :  0 ;
+  background :  url ( "assets/door.jpg" ) center/cover no-repeat;
+  chuyển đổi : biến đổi 2,5 giây, độ mượt;
+  transform-origin : left;
+}
+
+. cửa . mở {
+  biến đổi :  phối cảnh ( 1200 px ) xoay Y ( -75 độ );
+}
+
+/* Bươm bướm */
+. bươm bướm {
+  vị trí : tuyệt đối;
+  chiều rộng :  180 px ; /*TÔ HƠN*/
+  Còn lại :  50 % ;
+  hàng đầu :  55 % ;
+  biến đổi :  dịch chuyển ( -50 % ,  -50 % );
+  con trỏ : con trỏ chuột;
+  Hoạt ảnh : vỗ cánh 1,2 giây, chuyển động mượt mà vô hạn;
+  chuyển tiếp : tất cả 2 giây dễ dàng;
+}
+
+. bướm . bay {
+  trên cùng :  -40 % ;
+  độ mờ :  0 ;
+}
+
+@keyframes flap {
+  0 % , 100% { transform :  translate ( -50 % ,  -50 % ) scale ( 1 ); }
+  50 % { transform :  translate ( -50 % ,  -50 % ) scale ( 1.08 ); }
+}
+
+/* Chữ */
+. chữ {
+  vị trí : tuyệt đối;
+  chiều rộng :  100 % ;
+  căn chỉnh văn bản : ở giữa;
+  trên cùng :  45 % ;
+  màu sắc :  #fff ;
+  cỡ chữ :  36px ;
+  độ mờ :  0 ;
+  Transition : opacity 1.5 s ease;
+  khoảng cách giữa các chữ cái :  2px ;
+}
+
+/* Bức tranh trái tim trên nền dải ngân hà */
+# trái tim {
+  z-index :  1 ;
+}
