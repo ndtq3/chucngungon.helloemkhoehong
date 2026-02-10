@@ -27,7 +27,7 @@ butterfly.addEventListener("click", () => {
   }
 
   /* Show hearts after last text */
-  setTimeout(startHearts, delay + 100);
+  setTimeout(startHearts, delay - 5000);
 });
 
 /* ===== GALAXY EFFECT ===== */
