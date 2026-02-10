@@ -23,11 +23,11 @@ butterfly.addEventListener("click", () => {
   let delay = 2000;
   for (let i = 1; i < texts.length; i++) {
     setTimeout(() => showText(i), delay);
-    delay += 2500;
+    delay += 100;
   }
 
   /* Show hearts after last text */
-  setTimeout(startHearts, delay + 2000);
+  setTimeout(startHearts, delay + 100);
 });
 
 /* ===== GALAXY EFFECT ===== */
