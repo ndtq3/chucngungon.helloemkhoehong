@@ -27,8 +27,6 @@ butterfly.addEventListener("click", () => {
   }
 
   /* Show hearts after last text */
-    let delay = 5000;
-  for (let i = 3; i < texts.length; i++) {
     setTimeout(startHearts, delay + 1000);
 });
 
