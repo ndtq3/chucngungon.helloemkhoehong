@@ -7,7 +7,7 @@ const texts = [
 let currentText = 0;
 
 /* Show first text after 3s */
-setTimeout(() => showText(0), 3000);
+setTimeout(() => showText(0), 500);
 
 function showText(i) {
   texts.forEach(t => t.style.opacity = 0);
