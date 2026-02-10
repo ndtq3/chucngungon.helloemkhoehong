@@ -7,7 +7,7 @@ const texts = [
 let currentText = 0;
 
 /* Show first text after 3s */
-setTimeout(() => showText(0), 500);
+setTimeout(() => showText(0), 3000);
 
 function showText(i) {
   texts.forEach(t => t.style.opacity = 0);
@@ -23,11 +23,11 @@ butterfly.addEventListener("click", () => {
   let delay = 2000;
   for (let i = 1; i < texts.length; i++) {
     setTimeout(() => showText(i), delay);
-    delay += 100;
+    delay += 2500;
   }
 
   /* Show hearts after last text */
-    setTimeout(startHearts, delay + 1000);
+  setTimeout(startHearts, delay + 2000);
 });
 
 /* ===== GALAXY EFFECT ===== */
